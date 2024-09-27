@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": -110.36, "attrs": {} },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -26.2,
+      "left": 41,
+      "attrs": { "type": "50kg" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 150.4,
+      "left": 24.8,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "cell1:GND", "esp:GND.3", "black", [ "h0" ] ],
+    [ "cell1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-9.6", "v-134.4" ] ],
+    [ "lcd1:VCC", "esp:5V", "violet", [ "h-19.2", "v57.7", "h-144", "v-28.8" ] ],
+    [ "lcd1:SDA", "esp:21", "cyan", [ "h-19.2", "v-105.4" ] ],
+    [ "lcd1:SCL", "esp:22", "yellow", [ "h-28.8", "v-143.7" ] ],
+    [ "cell1:DT", "esp:13", "green", [ "h-163.2", "v172.3" ] ],
+    [ "cell1:SCK", "esp:14", "gray", [ "h-172.8", "v133.6" ] ]
+  ],
+  "dependencies": {}
+}
